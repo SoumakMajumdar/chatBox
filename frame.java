@@ -15,6 +15,8 @@ public class frame {
 	static JTextField j6 = new JTextField("          :");
 	static JTextArea jf = new JTextArea();
 	static JButton b  = new JButton("Send");
+	static receiver r = new receiver(jf);
+	static sender s = new sender(b, j2, j4, j6);
 
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
@@ -36,23 +38,9 @@ public class frame {
 
 		f.setSize(500, 600);
 		f.setVisible(true);
-		receiver r = new receiver(jf);
+
 		r.start();
-		b.addActionListener(new ActionListener(){
-		    public void actionPerformed(ActionEvent e){
-		    	try {
-				Socket clientSocket = new Socket(j4.getText(),Integer.parseInt(j6.getText()));
-				OutputStream outToServer = clientSocket.getOutputStream();
-				BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-				outToServer.write((j2.getText()+"\n").getBytes());
-				clientSocket.close();
-				}catch (UnknownHostException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-		    }
-		});
+		s.start();
 	}
 	public static String findIP() throws Exception {
 		InetAddress IP = InetAddress.getLocalHost();
