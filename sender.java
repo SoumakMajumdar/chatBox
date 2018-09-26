@@ -29,7 +29,7 @@ public class sender extends Thread {
 				BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 				try {
 					outToServer.write((findIP() + "  ==>>  " + j2.getText()+"\n").getBytes());
-					jf.setText(jf.getText() + "\n" + j4.getText() + "  <<==  " + j2.getText());
+					jf.setText(jf.getText() + "\n" + j4.getText() + "  <<==  " + j2.getText() + "\n");
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
