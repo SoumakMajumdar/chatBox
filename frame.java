@@ -14,7 +14,7 @@ public class frame {
 	static JTextArea jf = new JTextArea();
 	static JButton b  = new JButton("Send");
 	static receiver r = new receiver(jf);
-	static sender s = new sender(b, j2, j4, j6);
+	static sender s = new sender(b, j2, j4, j6, jf);
 
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
