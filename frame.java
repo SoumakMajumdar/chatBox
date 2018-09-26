@@ -8,20 +8,19 @@ import java.net.*;
 
 public class frame {
 	static JLabel j1 = new JLabel("Message");
-	static JTextField j2 = new JTextField("msg");
+	static JTextField j2 = new JTextField("                            :");
 	static JLabel j3 = new JLabel("IP");
-	static JTextField j4 = new JTextField("IP");
+	static JTextField j4 = new JTextField("                            :");
 	static JLabel j5 = new JLabel("Port");
-	static JTextField j6 = new JTextField("PORT");
+	static JTextField j6 = new JTextField("          :");
 	static JTextArea jf = new JTextArea();
 	static JButton b  = new JButton("Send");
-	
+
 	public static void main(String[] args) {
 		JFrame f = new JFrame();
 		try {
 			f.setTitle(findIP());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		JPanel p = new JPanel();
@@ -35,12 +34,12 @@ public class frame {
 		p.add(j6);
 		p.add(b);
 
-		f.setSize(500, 600); 
+		f.setSize(500, 600);
 		f.setVisible(true);
 		receiver r = new receiver(jf);
 		r.start();
-		b.addActionListener(new ActionListener(){  
-		    public void actionPerformed(ActionEvent e){ 
+		b.addActionListener(new ActionListener(){
+		    public void actionPerformed(ActionEvent e){
 		    	try {
 				Socket clientSocket = new Socket(j4.getText(),Integer.parseInt(j6.getText()));
 				OutputStream outToServer = clientSocket.getOutputStream();
@@ -54,8 +53,8 @@ public class frame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-		    }  
-		}); 
+		    }
+		});
 	}
 	public static String findIP() throws Exception {
 		InetAddress IP = InetAddress.getLocalHost();
