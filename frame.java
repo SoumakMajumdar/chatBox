@@ -1,4 +1,5 @@
 package chatBox;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -7,12 +8,12 @@ import java.net.*;
 
 public class frame {
 	static JLabel j1 = new JLabel("Message");
-	static JTextArea j2 = new JTextArea("msg");
+	static JTextField j2 = new JTextField("msg");
 	static JLabel j3 = new JLabel("IP");
-	static JTextArea j4 = new JTextArea("IP");
+	static JTextField j4 = new JTextField("IP");
 	static JLabel j5 = new JLabel("Port");
-	static JTextArea j6 = new JTextArea("PORT");
-	static JTextField jf = new JTextField();
+	static JTextField j6 = new JTextField("PORT");
+	static JTextArea jf = new JTextArea();
 	static JButton b  = new JButton("Send");
 	
 	public static void main(String[] args) {
@@ -32,8 +33,8 @@ public class frame {
 		p.add(j4);
 		p.add(j5);
 		p.add(j6);
-		
 		p.add(b);
+
 		f.setSize(500, 600); 
 		f.setVisible(true);
 		receiver r = new receiver(jf);
