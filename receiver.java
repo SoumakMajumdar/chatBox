@@ -3,11 +3,11 @@ package chatBox;
 import java.io.*;
 import java.net.*;
 
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 public class receiver extends Thread {
-	static JTextField jf = new JTextField();
-	public receiver(JTextField jf) {
+	static JTextArea jf = new JTextArea();
+	public receiver(JTextArea jf) {
 	this.jf=jf;
 	}
 
@@ -20,7 +20,8 @@ public class receiver extends Thread {
 				BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
 				//OutputStream outToClient = connectionSocket.getOutputStream();
 				String sentence = inFromClient.readLine();
-				jf.setText(sentence);				
+				sentence = sentence + "\n";
+				jf.setText(sentence + jf.getText());				
 				connectionSocket.close();
 			}
 		}catch (IOException e) {
