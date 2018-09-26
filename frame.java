@@ -47,10 +47,8 @@ public class frame {
 				outToServer.write((j2.getText()+"\n").getBytes());
 				clientSocket.close();
 				}catch (UnknownHostException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 		    }
