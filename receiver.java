@@ -21,7 +21,7 @@ public class receiver extends Thread {
 				//OutputStream outToClient = connectionSocket.getOutputStream();
 				String sentence = inFromClient.readLine();
 				sentence = sentence + "\n";
-				jf.setText(sentence + jf.getText());				
+				jf.setText(jf.getText() + sentence);				
 				connectionSocket.close();
 			}
 		}catch (IOException e) {
